@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tibetan Language Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Learn Tibetan</h1>
+        <nav>
+            <ul>
+                <li><a href="#lessons">Lessons</a></li>
+                <li><a href="#practice">Practice</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="lessons" class="section">
+        <h2>Lessons</h2>
+        <p>Explore Tibetan language lessons with audio pronunciation.</p>
+        <button onclick="playAudio('audio/sample.mp3')">Play Sample Audio</button>
+    </section>
+    
+    <section id="practice" class="section">
+        <h2>Practice</h2>
+        <p>Drag the Tibetan words to match their English meanings.</p>
+        <div class="drag-container">
+            <div class="draggable" draggable="true" id="word1">བཀྲ་ཤིས་</div>
+            <div class="draggable" draggable="true" id="word2">དགའ་བ་</div>
+        </div>
+        <div class="drop-container">
+            <div class="drop-zone" data-match="word1">Good Luck</div>
+            <div class="drop-zone" data-match="word2">Happiness</div>
+        </div>
+    </section>
+    
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p>Email: tibetanlearning@example.com</p>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
