@@ -18,8 +18,57 @@
             </ul>
         </nav>
     </header>
-    <section>
-        <h2>Practice Exercises Coming Soon!</h2>
+    <section id="practice" class="section">
+        <h2>Practice Tibetan</h2>
+        <p>Try out the interactive drag-and-drop exercises to match Tibetan words with their meanings.</p>
+        
+        <div class="drag-drop-container">
+            <div class="word-list">
+                <p draggable="true" class="draggable" id="word1">བཀྲ་ཤིས་</p>
+                <p draggable="true" class="draggable" id="word2">དགའ་རིག</p>
+                <p draggable="true" class="draggable" id="word3">བོད་ཡིག</p>
+            </div>
+            
+            <div class="drop-zone" id="zone1">Drop Meaning Here</div>
+            <div class="drop-zone" id="zone2">Drop Meaning Here</div>
+            <div class="drop-zone" id="zone3">Drop Meaning Here</div>
+        </div>
     </section>
+    
+    <script>
+        const draggables = document.querySelectorAll('.draggable');
+        const dropZones = document.querySelectorAll('.drop-zone');
+
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text', e.target.id);
+            });
+        });
+
+        dropZones.forEach(zone => {
+            zone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            zone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const wordId = e.dataTransfer.getData('text');
+                const wordElement = document.getElementById(wordId);
+                e.target.appendChild(wordElement);
+            });
+        });
+    </script>
+    <div class="word-list">
+        <p draggable="true" class="draggable" id="word1">
+            བཀྲ་ཤིས་ <button onclick="playAudio('audio/tashi.mp3')">🔊</button>
+        </p>
+        <p draggable="true" class="draggable" id="word2">
+            སེམས་ <button onclick="playAudio('audio/sems.mp3')">🔊</button>
+        </p>
+        <p draggable="true" class="draggable" id="word3">
+            བདེ་ <button onclick="playAudio('audio/de.mp3')">🔊</button>
+        </p>
+    </div>
+    
 </body>
 </html>
