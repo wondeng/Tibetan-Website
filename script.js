@@ -27,13 +27,26 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+    dropZones.forEach(zone => {
+        zone.addEventListener("drop", e => {
+            const dragged = document.querySelector(".dragging");
+            if (dragged) {
+                if (dragged.id === zone.getAttribute("data-match")) {
+                    zone.textContent = dragged.textContent;
+                    dragged.remove();
+                    zone.style.backgroundColor = "lightgreen"; // Correct answer feedback
+                } else {
+                    zone.style.backgroundColor = "red"; // Wrong answer feedback
+                    setTimeout(() => zone.style.backgroundColor = "", 1000);
+                }
+            }
+        });
+    });
+    
 });
 
 function playAudio(src) {
     const audio = new Audio(src);
     audio.play();
 }
-function playAudio(src) {
-    const audio = new Audio(src);
-    audio.play();
-}
+
